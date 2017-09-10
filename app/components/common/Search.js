@@ -15,15 +15,15 @@ class Search extends Component {
 
 		var newState = {};
 		newState[event.target.id] = event.target.value;
+		console.log(this.state.numArticles);
 		this.setState(newState);
 
 	}
 
 	searchHandler =(event) => {
 		event.preventDefault();
-		API.getArticles(this.state.term, this.state.startDate, this.state.endDate).then(function(results){
-			console.log("results",results);
-		})
+		console.log(this.state.numArticles);
+		this.props.getArticles(this.state.term, this.state.startDate, this.state.endDate, this.state.numArticles);
 	}
 
 	render() {
@@ -47,8 +47,7 @@ class Search extends Component {
 				                <label htmlFor="pwd">Number of Records to Retrieve:</label>
 				                <select className="form-control" value={this.state.numArticles} onChange ={this.handleChange} id="numArticles">
 									<option value="1">1</option>
-									
-									<option value="5" defaultValue>5</option>
+									<option value="5">5</option>
 									<option value="10">10</option>
 								</select>
 				              </div>
@@ -56,7 +55,7 @@ class Search extends Component {
 				              
 				              <div className="form-group">
 				                <label htmlFor="start-year">Start Year (Optional):</label>
-				                <input type="text" value={this.state.startDate} onChange ={this.handleChange} className="form-control" id="startDate"/>
+				                <input type="text" value={this.state.startDate} onChange = {this.handleChange} className="form-control" id="startDate"/>
 				              </div>
 
 				              
