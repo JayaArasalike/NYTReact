@@ -18,17 +18,19 @@ app.use("/", routes);
 var db = process.env.MONGODB_URI || "mongodb://localhost/nytreact";
 
 //Connect mongoose to our database
-mongoose.connect(db, function(error){
-	if(error) {
-		console.log(error);
-	}
-	//or log a success message
-	else {
-		console.log("mongoose connection is succesful");
-	}
-});
-
+// mongoose.connect(db, function(error){
+// 	if(error) {
+// 		console.log(error);
+// 	}
+// 	//or log a success message
+// 	else {
+// 		console.log("mongoose connection is succesful");
+// 	}
+// });
+mongoose.connect("mongodb://heroku_wppc6vf0:s8ergdvlplb36853s0vpecuqde@ds133814.mlab.com:33814/heroku_wppc6vf0");
 //start the server
 app.listen(PORT, function() {
 	console.log("Now listening on port %s! Visit localhost:%s in your browser.", PORT, PORT);
 });
+
+//mongodb://heroku_wppc6vf0:s8ergdvlplb36853s0vpecuqde@ds133814.mlab.com:33814/heroku_wppc6vf0
