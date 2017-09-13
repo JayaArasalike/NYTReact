@@ -10,16 +10,16 @@ class Home extends Component {
 		articles: [],
 		numArticles : 0
 	};
-	// Getting all quotes when the component mounts
-	// componentDidMount() {
- //    	this.getArticles();
- //  	}
 
 	getArticles = (term, startDate, endDate, numArticles) => {
 		API.getArticles(term, startDate, endDate).then( (results) => {
 			console.log("results", results);
 			this.setState({articles: results.data.response.docs, numArticles: numArticles});
 		});
+	}
+
+	saveArticle = (article) => {
+		API.saveArticle(article);
 	}
 
 	render() {
@@ -30,9 +30,8 @@ class Home extends Component {
 			      <h1 className="text-center"><strong><i className="fa fa-newspaper-o"></i> New York Times Search</strong></h1>
     			</div>
     			<Search getArticles={this.getArticles} />
-    			<Results articles = {this.state.articles} numArticles={this.state.numArticles}/>
+    			<Results articles = {this.state.articles} numArticles={this.state.numArticles} saveArticle={this.saveArticle} />
     		</div>
-
 		)
 	}
 }

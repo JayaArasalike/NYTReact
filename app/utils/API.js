@@ -21,8 +21,8 @@ const API = {
     return axios.get("/api/articles");
   },
   // Saves a new quote to the db
-  saveArticle: function(text) {
-    return axios.post("/api/articles", { text });
+  saveArticle: function(article) {
+    return axios.post("/api/articles", { article });
   },
   // Deletes a quote from the db
   deleteArticle: function(id) {

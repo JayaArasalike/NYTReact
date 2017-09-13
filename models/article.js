@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 
-var Schema = mongoose.schema;
+var Schema = mongoose.Schema;
 
 var articleSchema = new Schema({
 	title: {
@@ -11,11 +11,6 @@ var articleSchema = new Schema({
 		 type: Date,
 		 default: Date.now
 	},
-	favorited: {
-	    type: Boolean,
-	    default: false
-  	},
-
 	url: {
 		type: String,
 		required: true
