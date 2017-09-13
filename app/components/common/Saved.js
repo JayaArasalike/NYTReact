@@ -3,8 +3,8 @@ import API from "../../utils/API";
 
 class Saved extends Component {
 
-	deleteHandler = (event) => {
-		this.props.deleteArticle();
+	deleteHandler = (articleId, event) => {
+		this.props.deleteArticle(articleId);
 	}
 
 	render() {
@@ -29,7 +29,7 @@ class Saved extends Component {
 									<h5>PubDate: {article.date}</h5>
 									<a href={article.url}>{article.url}</a>
 									<br />
-									<button type="button" onClick = {this.deleteHandler.bind(this, index)} className="btn btn-default" id={"delete_btn_" + index} ><i className="fa fa-trash"></i> Delete</button>
+									<button type="button" onClick = {this.deleteHandler.bind(this, article._id)} className="btn btn-default" id={"delete_btn_" + index} ><i className="fa fa-trash"></i> Delete</button>
 								</div>
 
 							);

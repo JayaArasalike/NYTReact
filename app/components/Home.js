@@ -20,8 +20,9 @@ class Home extends Component {
 	}
 
 	saveArticle = (article) => {
-		API.saveArticle(article);
-		this.getSavedArticles();
+		API.saveArticle(article).then((res) => {
+  			this.getSavedArticles();
+		}
 	}
 
 	// Getting all quotes when the component mounts
@@ -34,6 +35,12 @@ class Home extends Component {
     		this.setState({ savedArticles: res.data });
     		console.log(res.data);
     	});
+  	}
+  	//this function is called from saved.js
+  	deleteArticle = (articleId) => {
+  		API.deleteArticle(articleId).then((res) =>{
+  			this.getSavedArticles();
+  		})
   	}
 
 	render() {
