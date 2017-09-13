@@ -3,21 +3,6 @@ import API from "../../utils/API";
 
 class Saved extends Component {
 
-	state = {
-		savedArticles: []
-	}
-
-	// Getting all quotes when the component mounts
-	componentDidMount() {
-		this.getSavedArticles();
-	}
-
-	getSavedArticles = () => {
-    	API.getSavedArticles().then((res) => {
-    		this.setState({ savedArticles: res.data });
-    	});
-  	}
-
 	deleteHandler = (event) => {
 		this.props.deleteArticle();
 	}
@@ -34,7 +19,7 @@ class Saved extends Component {
 		          </div>
 		          <div className="panel-body" id="well-section">
 		          	{
-		          		this.state.savedArticles.map((article, index) => {
+		          		this.props.savedArticles.map((article, index) => {
 							return (
 								<div className="well" id={"articleWell-" + index} key={index}>
 									<h3>

@@ -8,7 +8,8 @@ import Saved from "./common/Saved";
 class Home extends Component {
 	state = {
 		articles: [],
-		numArticles : 0
+		numArticles : 0,
+		savedArticles: []
 	};
 
 	getArticles = (term, startDate, endDate, numArticles) => {
@@ -20,7 +21,19 @@ class Home extends Component {
 
 	saveArticle = (article) => {
 		API.saveArticle(article);
+		this.getSavedArticles();
 	}
+
+	// Getting all quotes when the component mounts
+	componentDidMount() {
+		this.getSavedArticles();
+	}
+
+	getSavedArticles = () => {
+    	API.getSavedArticles().then((res) => {
+    		this.setState({ savedArticles: res.data });
+    	});
+  	}
 
 	render() {
 		return(
@@ -31,7 +44,7 @@ class Home extends Component {
     			</div>
     			<Search getArticles={this.getArticles} />
     			<Results articles = {this.state.articles} numArticles={this.state.numArticles} saveArticle={this.saveArticle} />
-    			<Saved />
+    			<Saved savedArticles = {this.state.savedArticles} />
     		</div>
 		)
 	}
