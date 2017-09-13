@@ -32,6 +32,7 @@ class Home extends Component {
 	getSavedArticles = () => {
     	API.getSavedArticles().then((res) => {
     		this.setState({ savedArticles: res.data });
+    		console.log(res.data);
     	});
   	}
 
