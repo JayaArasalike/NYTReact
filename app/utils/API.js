@@ -18,6 +18,7 @@ const API = {
 
   // Retrieves all saved articles from the db
   getSavedArticles: function() {
+    console.log("get /api/articles")
     return axios.get("/api/articles");
   },
   // Saves a new quote to the db

@@ -4,10 +4,10 @@ import API from "../../utils/api";
 class Search extends Component {
 
 	state = {
-		term:"",
-		numArticles:5,
-		startDate:"",
-		endDate:""
+		term: "",
+		numArticles: 5,
+		startDate: "",
+		endDate: ""
 	}
 
 	handleChange = (event) => {

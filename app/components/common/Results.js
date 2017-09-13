@@ -17,9 +17,7 @@ class Results extends Component {
 		this.props.saveArticle(article);
 	}
 
-	deleteHandler = (event) => {
-		this.props.deleteArticle
-	}
+	
 	render() {
 		return(
 			

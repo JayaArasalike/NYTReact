@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Search from "./common/Search";
 import Results from "./common/Results";
 import API from "../utils/API";
-
+import Saved from "./common/Saved";
 //<div className="jumbotron" style={{backgroundColor: '#20315A', color: 'white'}}>
 
 class Home extends Component {
@@ -31,6 +31,7 @@ class Home extends Component {
     			</div>
     			<Search getArticles={this.getArticles} />
     			<Results articles = {this.state.articles} numArticles={this.state.numArticles} saveArticle={this.saveArticle} />
+    			<Saved />
     		</div>
 		)
 	}
