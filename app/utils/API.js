@@ -1,7 +1,7 @@
 import axios from "axios";
 
 var authKey = "702b9290bd6d47d1aa854012fad33b38";
-var queryURLBase = "http://api.nytimes.com/svc/search/v2/articlesearch.json";
+var queryURLBase = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
 
 const API = {
 
@@ -18,7 +18,6 @@ const API = {
 
   // Retrieves all saved articles from the db
   getSavedArticles: function() {
-    console.log("get /api/articles")
     return axios.get("/api/articles");
   },
   // Saves a new quote to the db
